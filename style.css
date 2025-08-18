@@ -1,0 +1,393 @@
+:root {
+    /* Cores */
+    --cor-fundo-principal: rgba(168, 167, 167, 0.6);
+    --cor-fundo-cartao: rgb(255, 246, 246);
+    --cor-texto: #333;
+    --cor-decoracao-1: #f15bb5;
+    --cor-decoracao-2: #f4d35e;
+    --cor-decoracao-3: #00f5d4;
+    --cor-decoracao-4: #9b5de5;
+    --cor-decoracao-5: #00bbf9;
+    --cor-bolo: #f15bb5;
+    --cor-bolo-sombra-1: #f9c74f;
+    --cor-bolo-sombra-2: #432818;
+    --cor-vela-chama: #fb5607;
+    --cor-padrao-prato-1: #9b5de5;
+    --cor-padrao-prato-2: #00f5d4;
+
+    /* Tamanhos */
+    --tamanho-cartao-largura: 350px;
+    --tamanho-cartao-altura: 490px;
+    --tamanho-fonte-principal: 30px;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+      background: linear-gradient(to bottom, #001f4d, #105991);
+    margin: 0;
+    overflow-x: hidden;
+}
+
+/* Container do cartão */
+.birthdayCard {
+    position: relative;
+    width: var(--tamanho-cartao-largura);
+    height: var(--tamanho-cartao-altura);
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transform: perspective(2500px);
+    transition: 4s;
+}
+
+.birthdayCard:hover {
+    transform: perspective(2500px);
+    box-shadow: inset 100px 20px 100px rgba(0,0,0,.15), 0 10px 100px rgba(0,0,0,0.3);
+}
+
+.birthdayCard:hover .cardFront {
+    transform: rotateY(-160deg); 
+}
+
+.birthdayCard:hover .front-text {
+    display: none;
+}
+
+.birthdayCard:hover .wrap-deco {
+    display: block;
+}
+
+.birthdayCard:hover .wrap-decoTwo {
+    display: block;
+}
+
+.birthdayCard:hover .plate {
+    display: none;
+}
+
+/* Estilo da frente do cartão */
+.cardFront {
+    position: relative;
+    background-color: var(--cor-fundo-cartao);
+    width: var(--tamanho-cartao-largura);
+    height: var(--tamanho-cartao-altura);
+    overflow: hidden;
+    transform-origin: left;
+    box-shadow: inset 100px 20px 100px rgba(0,0,0,.13), 30px 0 50px rgba(0,0,0,0.1);
+    transition: .4s;
+}
+
+/* Centraliza o texto "Feliz Aniversário JUJUBA!" */
+.front-text {
+    position: absolute;
+    top: 78%;
+    left: 51%;
+    transform: translate(-50%, -50%);
+}
+
+.happy, .toyou {
+    position: relative;
+    font-family: arial;
+    text-align: center;
+    backface-visibility: hidden;
+    font-size: var(--tamanho-fonte-principal);
+    letter-spacing: 0.15em;
+    margin: 0;
+}
+
+/* Bandeiras e balões */
+.wrap-deco {
+    position: absolute;
+    top: -230px;
+ left: -200px;
+}
+
+.wrap-decoTwo {
+    transform: scaleX(-1);
+    position: absolute;
+    top: -230px;
+    left: 515px; 
+}
+
+.decorations, .decorationsTwo, .decorationsThree {
+    position: absolute;
+    width: 400px;
+    height: 300px;
+    border: 3px solid var(--cor-texto);
+    border-radius: 50%;
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+.birthdayCard:hover .decorations,
+.birthdayCard:hover .decorationsTwo,
+.birthdayCard:hover .decorationsThree {
+    transform: translateY(-600px);
+    opacity: 0;
+}
+
+.decorations:before, .decorations:after,
+.decorationsTwo:before, .decorationsTwo:after,
+.decorationsThree:before, .decorationsThree:after {
+    content: "";
+    position: absolute;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    width: 0;
+    height: 0;
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+.birthdayCard:hover .decorations:before,
+.birthdayCard:hover .decorations:after,
+.birthdayCard:hover .decorationsTwo:before,
+.birthdayCard:hover .decorationsTwo:after,
+.birthdayCard:hover .decorationsThree:before,
+.birthdayCard:hover .decorationsThree:after {
+    transform: translateY(-600px);
+    opacity: 0;
+}
+
+.decorations:before {
+    border-top: 40px solid var(--cor-decoracao-1);
+    top: 297px;
+    left: 210px;
+    transform: rotate(-5deg);
+}
+
+.decorations:after {
+    border-top: 40px solid var(--cor-decoracao-2);
+    top: 288px;
+    left: 260px;
+    transform: rotate(-17deg);
+}
+
+.decorationsTwo:before {
+    border-top: 40px solid var(--cor-decoracao-3);
+    top: 268px;
+    left: 315px;
+    transform: rotate(-30deg);
+}
+
+.decorationsTwo:after, .decorationsThree:after {
+    border-top: 40px solid var(--cor-decoracao-4);
+    top: 238px;
+    left: 355px;
+    transform: rotate(-40deg);
+}
+
+.decorationsThree:before {
+    border-top: 40px solid var(--cor-decoracao-5);
+    top: 268px;
+    left: 315px;
+    transform: rotate(-30deg);
+}
+
+/* Bolo */
+.plate {
+    position: absolute;
+    width: 130px;
+    height: 9px;
+    background-color: var(--cor-decoracao-5);
+    left: 104px;
+    top: 298px;
+}
+
+.cake {
+    position: absolute;
+    overflow: hidden;
+    width: 100px;
+    height: 50px;
+    background-color: var(--cor-bolo);
+    border-radius: 10px 10px 0 0;
+    top: -50px;
+    left: 15px;
+    box-shadow: inset 0 -15px var(--cor-bolo-sombra-1), inset 0 15px var(--cor-bolo-sombra-2);
+}
+
+.cake:before {
+    content: "";
+    position: absolute;
+    background-color: var(--cor-bolo-sombra-2);
+    width: 10px;
+    height: 20px;
+    top: 5px;
+    border-radius: 20px;
+    box-shadow: 10px 5px var(--cor-bolo), 20px 0px var(--cor-bolo-sombra-2), 30px 2px var(--cor-bolo), 40px 5px var(--cor-bolo-sombra-2), 50px 5px var(--cor-bolo), 60px 0px var(--cor-bolo-sombra-2), 70px 5px var(--cor-bolo), 80px 5px var(--cor-bolo-sombra-2), 90px 5px var(--cor-bolo);
+}
+
+.plate:before {
+    content: "";
+    position: absolute;
+    background: repeating-linear-gradient(-45deg, var(--cor-padrao-prato-1), var(--cor-padrao-prato-1) 3px, var(--cor-padrao-prato-2) 3px, var(--cor-padrao-prato-2) 6px);
+    width: 7px;
+    height: 25px;
+    top: -75px;
+    left: 61px;
+}
+
+.plate:after {
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 5px;
+    background-color: var(--cor-texto);
+    top: -80px;
+    left: 64px;
+}
+
+.cake, .plate {
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    opacity: 1;
+}
+
+.birthdayCard:hover .cake {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.birthdayCard:hover .plate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/*final do bolo*/
+.flame {
+    position: absolute;
+    background-color: var(--cor-vela-chama);
+    border-radius: 80% 0 55% 50% / 55% 0 80% 50%;
+    transform: rotate(-45deg);
+    width: 15px;
+    height: 15px;
+    opacity: 0;
+    top: -93px;
+    left: 57px;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.birthdayCard:hover .flame {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.inside-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column; /* organiza imagem e legenda em coluna */
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+    background: transparent;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.cardFront .inside-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;   /* ocupa toda a parte da esquerda */
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+    background: transparent;
+    opacity: 0;              /* 👈 invisível quando fechado */
+    transition: opacity 0.2s ease-in-out;
+}
+
+.inside-left img {
+    max-width: 90%;
+    max-height: 70%; /* diminui altura para caber a legenda */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.caption {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--cor-texto);
+    font-size: 16px;
+    text-align: center;
+        transform: rotateY(160deg); /* desfaz a rotação do cartão */
+}
+
+.cardFront .inside-left img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.birthdayCard:hover .inside-left {
+    opacity: 1;
+}
+
+.paperclip {
+    position: absolute;
+    top: 50px;
+    right: 299px;  
+    width: 20px;
+    height: 40px;
+    border: 3px solid #333; 
+    border-radius: 10px 10px 0 0;
+    transform: rotate(-10deg); /* deixa inclinado, estilo clipe */
+    background: transparent;
+}
+
+.paperclip::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 3px;
+    width: 14px;
+    height: 30px;
+    border: 3px solid #333;
+    border-radius: 10px 10px 0 0;
+    transform: rotate(0deg);
+}
+
+
+/* Estilo da parte interna do cartão */
+.cardInside {
+    position: absolute;
+    background-color: #fff;
+    width: var(--tamanho-cartao-largura);
+    height: var(--tamanho-cartao-altura);
+    z-index: -1;
+    left: 0;
+    top: 0;
+    box-shadow: inset 100px 20px 100px rgba(0,0,0,0.2);
+}
+
+.inside-text {
+    position: relative;
+    top: -160px;
+    transform: scale(0.7);
+}
+
+.wishes {
+    position: relative;
+    top: -10px;
+    margin: 25px;
+}
+
+p {
+    font-family: 'Montserrat';
+    color: var(--cor-texto);
+}
+
+.name {
+    margin-left: 150px;
+}
+
