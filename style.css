@@ -521,25 +521,33 @@ p {
         padding: 8px 12px;
         gap: 8px;
     }
-    
+
     .zoom-btn {
         width: 30px;
         height: 30px;
         font-size: 16px;
     }
-    
+
     .zoom-btn.reset {
         padding: 0 10px;
         font-size: 11px;
     }
-    
+
     .zoom-level {
         font-size: 12px;
         min-width: 40px;
     }
-    
+
     body {
         padding: 10px;
+    }
+
+    .happy, .toyou {
+        font-size: 24px; /* Reduz o tamanho da fonte */
+    }
+
+    .wishes p {
+        font-size: 14px; /* Reduz o tamanho da fonte dos desejos */
     }
 }
 
@@ -550,24 +558,32 @@ p {
         padding: 6px 10px;
         gap: 6px;
     }
-    
+
     .zoom-btn {
         width: 28px;
         height: 28px;
         font-size: 14px;
     }
-    
+
     .zoom-btn.reset {
         padding: 0 8px;
         font-size: 10px;
     }
-    
+
     .zoom-level {
         font-size: 11px;
         min-width: 35px;
     }
-    
+
     body {
         padding: 5px;
+    }
+
+    .happy, .toyou {
+        font-size: 20px; /* Reduz ainda mais o tamanho da fonte */
+    }
+
+    .wishes p {
+        font-size: 12px; /* Reduz ainda mais em telas menores */
     }
 }
