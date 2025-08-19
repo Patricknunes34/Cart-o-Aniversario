@@ -549,7 +549,7 @@ p {
 
     /* === MUDANÇA AQUI: NOVO TOP PARA O BOLO === */
     .plate {
-        top: 100px; /* Sobe o bolo no cartão para telas de até 768px */
+        top: 130px; /* Sobe o bolo no cartão para telas de até 768px */
         left: 50%;
         transform: translateX(-50%);
     }
@@ -636,7 +636,7 @@ p {
 
     /* === MUDANÇA AQUI: NOVO TOP PARA O BOLO === */
     .plate {
-        top: 90px; /* Ajuste para subir o bolo em telas menores */
+        top: 120px; /* Ajuste para subir o bolo em telas menores */
         left: 50%;
         transform: translateX(-50%);
     }
@@ -676,7 +676,7 @@ p {
 
     /* === MUDANÇA AQUI: NOVO TOP PARA O BOLO === */
     .plate {
-        top: 80px; /* Ajuste final para as menores telas */
+        top: 110px; /* Ajuste final para as menores telas */
         left: 50%;
         transform: translateX(-50%);
     }
