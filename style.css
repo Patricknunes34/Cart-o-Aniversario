@@ -548,10 +548,13 @@ p {
     }
 
     /* Ajustes para manter os objetos no lugar */
-    .plate { top: 180px; left: 50%; transform: translateX(-50%); }
+    .plate {
+        left: 10px; /* Ajusta a posição do prato */
+    }
 
-    .flame { top: 167px; left: calc(50% - 7px); /* Centraliza a chama */ }
-
+    .flame {
+        left: 10px; /* Ajusta a posição da chama da vela */
+    }
 
     .paperclip {
         right: 250px; /* Ajusta a posição do clipe de papel */
@@ -631,9 +634,13 @@ p {
     }
 
     /* Ajustes para telas menores */
-    .plate { top: 160px; left: 50%; transform: translateX(-50%); /* Centraliza o bolo */ }
+    .plate {
+        left: 70px;
+    }
     
-    .flame { top: 147px; left: calc(50% - 7px); /* Centraliza a chama */ }
+    .flame {
+        left: 45px;
+    }
 
     .paperclip {
         right: 220px;
