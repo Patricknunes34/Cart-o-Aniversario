@@ -453,7 +453,67 @@ p {
     margin-left: 150px;
 }
 
-/* Responsividade para controles de zoom */
+/* Controles de Zoom */
+.zoom-controls {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px 15px;
+    border-radius: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.zoom-btn {
+    width: 35px;
+    height: 35px;
+    border: none;
+    border-radius: 50%;
+    background: #007bff;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.zoom-btn:hover {
+    background: #0056b3;
+    transform: scale(1.1);
+}
+
+.zoom-btn.reset {
+    width: auto;
+    padding: 0 12px;
+    font-size: 12px;
+    font-weight: normal;
+    border-radius: 18px;
+}
+
+.zoom-level {
+    font-weight: bold;
+    color: #333;
+    min-width: 45px;
+    text-align: center;
+    font-size: 14px;
+}
+
+/* Esconde os controles em telas grandes (maior que 768px) */
+@media (min-width: 769px) {
+    .zoom-controls {
+        display: none;
+    }
+}
+
+/* Responsividade para telas menores (celular e tablet) */
 @media (max-width: 768px) {
     .zoom-controls {
         top: 10px;
