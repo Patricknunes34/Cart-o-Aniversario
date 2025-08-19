@@ -599,11 +599,11 @@ p {
 
     .wishes {
         margin: 20px;
-        font-size: 14px;
+        font-size: 8px;
     }
 
     .wishes p {
-        font-size: 8px;
+        font-size: 14px;
         line-height: 1.4;
     }
 }
