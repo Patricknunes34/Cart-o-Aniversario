@@ -8,45 +8,118 @@
     <title>Feliz Aniversário, Jujuba</title>
 </head>
 <body>
-  <div class="birthdayCard">
-      <div class="cardFront">
-          <div class="front-text">
-          <h3 class="happy">Feliz Aniversário</h3>
-          <h3 class="toyou">JUJUBA!</h3>
-      </div>
+  <!-- Controles de Zoom -->
+  <div class="zoom-controls">
+    <button class="zoom-btn" onclick="zoomIn()">+</button>
+    <span class="zoom-level">100%</span>
+    <button class="zoom-btn" onclick="zoomOut()">-</button>
+    <button class="zoom-btn reset" onclick="resetZoom()">Reset</button>
+  </div>
 
-      <div class="inside-left">
-        <img src="led.jpeg" alt="Foto Jujuba">
-        <div class="paperclip"></div>
-        <p class="caption">PRODUZIDO E ESCRITO POR LED</p>
-      </div>
-      
-      <div class="wrap-deco">
-          <div class="decorations"></div>
-          <div class="decorationsTwo"></div>
-      </div> 
-      
-      <div class="wrap-decoTwo">
-          <div class="decorations"></div>
-          <div class="decorationsThree"></div>
-      </div>
-
-      <div class="plate">
-          <div class="cake"></div>
-          <div class="flame"></div>
+  <div class="zoom-container" id="zoomContainer">
+    <div class="birthdayCard">
+        <div class="cardFront">
+            <div class="front-text">
+            <h3 class="happy">Feliz Aniversário</h3>
+            <h3 class="toyou">JUJUBA!</h3>
         </div>
-      </div>  
-      
-      <div class="cardInside">
-            <div class="inside-text">
-      </div>
-          
-      <div class="wishes">
-        <p>Ola, senhorita filósofa, kkkkkk, impressionante, né?</p>
-        <p>Mas, deixando claro, eu achei na internet o modelo e fui modificando. Mas eu não vim dar aula, mas sim parabenizar você e a foto do Led é porque não é só meu, mas dele também, ok? Conforme ele foi falando, eu escrevi:</p>
-        <p>Eae, senhorita, vim aqui desejar um feliz aniversário e muitas felicidades. Antes de tudo, queria agradecer pela oportunidade de ter participado da sua vida nesse pouco tempo, kkkkk, teoricamente parecendo um ano por conta dos conselhos, brincadeiras e a melhor companhia que você proporciona. Obrigado por tudo e OBRIGADO POR EXISTIR! Que Deus proporcione a você bênçãos e que dê-lhe oportunidade em todos os caminhos e sabedoria nas dificuldades, pois sua mãe criou uma grande moça, esforçada, filósofa e com um coração de ouro — e às vezes chata com a comida, mas aí é você, kkkkkkkkkk. Feliz aniversário, Jujuba 🥳🥳🥳🥳</p>
+
+        <div class="inside-left">
+          <img src="led.jpeg" alt="Foto Jujuba">
+          <div class="paperclip"></div>
+          <p class="caption">PRODUZIDO E ESCRITO POR LED</p>
+        </div>
+        
+        <div class="wrap-deco">
+            <div class="decorations"></div>
+            <div class="decorationsTwo"></div>
+        </div> 
+        
+        <div class="wrap-decoTwo">
+            <div class="decorations"></div>
+            <div class="decorationsThree"></div>
+        </div>
+
+        <div class="plate">
+            <div class="cake"></div>
+            <div class="flame"></div>
+          </div>
+        </div>  
+        
+        <div class="cardInside">
+              <div class="inside-text">
+        </div>
+            
+        <div class="wishes">
+          <p>Ola, senhorita filósofa, kkkkkk, impressionante, né?</p>
+          <p>Mas, deixando claro, eu achei na internet o modelo e fui modificando. Mas eu não vim dar aula, mas sim parabenizar você e a foto do Led é porque não é só meu, mas dele também, ok? Conforme ele foi falando, eu escrevi:</p>
+          <p>Eae, senhorita, vim aqui desejar um feliz aniversário e muitas felicidades. Antes de tudo, queria agradecer pela oportunidade de ter participado da sua vida nesse pouco tempo, kkkkk, teoricamente parecendo um ano por conta dos conselhos, brincadeiras e a melhor companhia que você proporciona. Obrigado por tudo e OBRIGADO POR EXISTIR! Que Deus proporcione a você bênçãos e que dê-lhe oportunidade em todos os caminhos e sabedoria nas dificuldades, pois sua mãe criou uma grande moça, esforçada, filósofa e com um coração de ouro — e às vezes chata com a comida, mas aí é você, kkkkkkkkkk. Feliz aniversário, Jujuba 🥳🥳🥳🥳</p>
+        </div>
       </div>
     </div>
   </div>
+
+  <script>
+    let currentZoom = 1;
+    const zoomStep = 0.1;
+    const minZoom = 0.5;
+    const maxZoom = 2.5;
+
+    function updateZoom() {
+      const container = document.getElementById('zoomContainer');
+      const zoomLevel = document.querySelector('.zoom-level');
+      
+      container.style.transform = `scale(${currentZoom})`;
+      zoomLevel.textContent = Math.round(currentZoom * 100) + '%';
+    }
+
+    function zoomIn() {
+      if (currentZoom < maxZoom) {
+        currentZoom += zoomStep;
+        updateZoom();
+      }
+    }
+
+    function zoomOut() {
+      if (currentZoom > minZoom) {
+        currentZoom -= zoomStep;
+        updateZoom();
+      }
+    }
+
+    function resetZoom() {
+      currentZoom = 1;
+      updateZoom();
+    }
+
+    // Zoom com scroll do mouse
+    document.addEventListener('wheel', function(e) {
+      if (e.ctrlKey) {
+        e.preventDefault();
+        
+        if (e.deltaY < 0) {
+          zoomIn();
+        } else {
+          zoomOut();
+        }
+      }
+    });
+
+    // Zoom com teclado
+    document.addEventListener('keydown', function(e) {
+      if (e.ctrlKey) {
+        if (e.key === '+' || e.key === '=') {
+          e.preventDefault();
+          zoomIn();
+        } else if (e.key === '-') {
+          e.preventDefault();
+          zoomOut();
+        } else if (e.key === '0') {
+          e.preventDefault();
+          resetZoom();
+        }
+      }
+    });
+  </script>
 </body>
 </html>
