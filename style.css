@@ -26,9 +26,73 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-      background: linear-gradient(to bottom, #001f4d, #105991);
+    background: linear-gradient(to bottom, #001f4d, #105991);
     margin: 0;
-    overflow-x: hidden;
+    overflow: auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Controles de Zoom */
+.zoom-controls {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px 15px;
+    border-radius: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.zoom-btn {
+    width: 35px;
+    height: 35px;
+    border: none;
+    border-radius: 50%;
+    background: #007bff;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.zoom-btn:hover {
+    background: #0056b3;
+    transform: scale(1.1);
+}
+
+.zoom-btn.reset {
+    width: auto;
+    padding: 0 12px;
+    font-size: 12px;
+    font-weight: normal;
+    border-radius: 18px;
+}
+
+.zoom-level {
+    font-weight: bold;
+    color: #333;
+    min-width: 45px;
+    text-align: center;
+    font-size: 14px;
+}
+
+/* Container de Zoom */
+.zoom-container {
+    transform-origin: center center;
+    transition: transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Container do cartão */
@@ -101,7 +165,7 @@ body {
 .wrap-deco {
     position: absolute;
     top: -230px;
- left: -200px;
+    left: -200px;
 }
 
 .wrap-decoTwo {
@@ -254,7 +318,6 @@ body {
     transform: translateY(0);
 }
 
-
 /*final do bolo*/
 .flame {
     position: absolute;
@@ -281,7 +344,7 @@ body {
     width: 100%;
     height: 100%;
     display: flex;
-    flex-direction: column; /* organiza imagem e legenda em coluna */
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 20px;
@@ -295,7 +358,7 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;   /* ocupa toda a parte da esquerda */
+    width: 100%;
     height: 100%;
     display: flex;
     align-items: center;
@@ -303,13 +366,13 @@ body {
     padding: 20px;
     box-sizing: border-box;
     background: transparent;
-    opacity: 0;              /* 👈 invisível quando fechado */
+    opacity: 0;
     transition: opacity 0.2s ease-in-out;
 }
 
 .inside-left img {
     max-width: 90%;
-    max-height: 70%; /* diminui altura para caber a legenda */
+    max-height: 70%;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
@@ -319,7 +382,7 @@ body {
     color: var(--cor-texto);
     font-size: 16px;
     text-align: center;
-        transform: rotateY(160deg); /* desfaz a rotação do cartão */
+    transform: rotateY(160deg);
 }
 
 .cardFront .inside-left img {
@@ -341,7 +404,7 @@ body {
     height: 40px;
     border: 3px solid #333; 
     border-radius: 10px 10px 0 0;
-    transform: rotate(-10deg); /* deixa inclinado, estilo clipe */
+    transform: rotate(-10deg);
     background: transparent;
 }
 
@@ -356,7 +419,6 @@ body {
     border-radius: 10px 10px 0 0;
     transform: rotate(0deg);
 }
-
 
 /* Estilo da parte interna do cartão */
 .cardInside {
@@ -391,33 +453,61 @@ p {
     margin-left: 150px;
 }
 
-/* Responsividade do texto interno */
+/* Responsividade para controles de zoom */
 @media (max-width: 768px) {
-    .inside-text {
-        top: -120px; /* diminui deslocamento para caber */
-        transform: scale(0.6); /* reduz tamanho */
-        width: 90%; /* garante que não ultrapasse o cartão */
-        margin: 0 auto;
+    .zoom-controls {
+        top: 10px;
+        right: 10px;
+        padding: 8px 12px;
+        gap: 8px;
     }
-
-    .wishes {
-        top: 0;
-        margin: 15px;
-        font-size: 14px;
+    
+    .zoom-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
+    }
+    
+    .zoom-btn.reset {
+        padding: 0 10px;
+        font-size: 11px;
+    }
+    
+    .zoom-level {
+        font-size: 12px;
+        min-width: 40px;
+    }
+    
+    body {
+        padding: 10px;
     }
 }
 
 @media (max-width: 480px) {
-    .inside-text {
-        top: -100px;
-        transform: scale(0.5);
-        width: 95%;
+    .zoom-controls {
+        top: 5px;
+        right: 5px;
+        padding: 6px 10px;
+        gap: 6px;
     }
-
-    .wishes {
-        top: 0;
-        margin: 10px;
-        font-size: 12px;
+    
+    .zoom-btn {
+        width: 28px;
+        height: 28px;
+        font-size: 14px;
+    }
+    
+    .zoom-btn.reset {
+        padding: 0 8px;
+        font-size: 10px;
+    }
+    
+    .zoom-level {
+        font-size: 11px;
+        min-width: 35px;
+    }
+    
+    body {
+        padding: 5px;
     }
 }
-
