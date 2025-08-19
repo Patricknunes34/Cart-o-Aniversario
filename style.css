@@ -549,11 +549,11 @@ p {
 
     /* Ajustes para manter os objetos no lugar */
     .plate {
-        left: 80px; /* Ajusta a posição do prato */
+        left: 150px; /* Ajusta a posição do prato */
     }
 
     .flame {
-        left: 50px; /* Ajusta a posição da chama da vela */
+        left: 120px; /* Ajusta a posição da chama da vela */
     }
 
     .paperclip {
@@ -672,11 +672,11 @@ p {
 
     /* Ajustes para telas muito pequenas */
     .plate {
-        left: 800px;
+        left: 60px;
     }
 
     .flame {
-        left: 500px;
+        left: 40px;
     }
 
     .paperclip {
