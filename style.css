@@ -497,7 +497,6 @@ p {
 }
 
 /* Responsividade para mobile */
-/* Responsividade para mobile */
 @media (max-width: 768px) {
     body {
         padding: 15px;
@@ -549,13 +548,10 @@ p {
     }
 
     /* Ajustes para manter os objetos no lugar */
-    .plate {
-        left: 80px; /* Ajusta a posição do prato */
-    }
+    .plate { top: 180px; left: 50%; transform: translateX(-50%); }
 
-    .flame {
-        left: 50px; /* Ajusta a posição da chama da vela */
-    }
+    .flame { top: 167px; left: calc(50% - 7px); /* Centraliza a chama */ }
+
 
     .paperclip {
         right: 250px; /* Ajusta a posição do clipe de papel */
@@ -635,13 +631,9 @@ p {
     }
 
     /* Ajustes para telas menores */
-    .plate {
-        left: 70px;
-    }
+    .plate { top: 160px; left: 50%; transform: translateX(-50%); /* Centraliza o bolo */ }
     
-    .flame {
-        left: 45px;
-    }
+    .flame { top: 147px; left: calc(50% - 7px); /* Centraliza a chama */ }
 
     .paperclip {
         right: 220px;
@@ -665,7 +657,7 @@ p {
         overflow-y: auto;
         max-height: 220px; /* Ajuste a altura máxima para telas menores */
     }
-    
+
     .wishes p {
         font-size: 13px;
         line-height: 1.3;
