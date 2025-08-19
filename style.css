@@ -549,7 +549,7 @@ p {
 
     /* === MUDANÇA AQUI: NOVO TOP PARA O BOLO === */
     .plate {
-    top: 180px; /* Aumente o valor para descer o bolo */
+    top: 280px; /* Aumente o valor para descer o bolo */
     left: 50%;
     transform: translateX(-50%);
     }
@@ -636,7 +636,7 @@ p {
 
     /* === MUDANÇA AQUI: NOVO TOP PARA O BOLO === */
     .plate {
-    top: 160px; /* Aumente o valor para descer o bolo */
+    top: 260px; /* Aumente o valor para descer o bolo */
     left: 50%;
     transform: translateX(-50%);
     }
@@ -676,7 +676,7 @@ p {
 
     /* === MUDANÇA AQUI: NOVO TOP PARA O BOLO === */
     .plate {
-    top: 160px; /* Aumente o valor para descer o bolo */
+    top: 260px; /* Aumente o valor para descer o bolo */
     left: 50%;
     transform: translateX(-50%);
     }
