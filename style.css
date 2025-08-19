@@ -497,6 +497,7 @@ p {
 }
 
 /* Responsividade para mobile */
+/* Responsividade para mobile */
 @media (max-width: 768px) {
     body {
         padding: 15px;
@@ -545,6 +546,28 @@ p {
         --tamanho-cartao-largura: 300px;
         --tamanho-cartao-altura: 420px;
         --tamanho-fonte-principal: 26px;
+    }
+
+    /* Ajustes para manter os objetos no lugar */
+    .plate {
+        left: 80px; /* Ajusta a posição do prato */
+    }
+
+    .flame {
+        left: 50px; /* Ajusta a posição da chama da vela */
+    }
+
+    .paperclip {
+        right: 250px; /* Ajusta a posição do clipe de papel */
+    }
+
+    .wrap-deco,
+    .wrap-decoTwo {
+        top: -260px; /* Move as decorações para cima */
+    }
+
+    .wrap-decoTwo {
+        left: 450px; /* Ajusta a posição das decorações da direita */
     }
 }
 
@@ -599,12 +622,33 @@ p {
 
     .wishes {
         margin: 20px;
-        font-size: 8px;
+        font-size: 14px;
+        /* Adicione a barra de rolagem apenas aqui */
+        overflow-y: auto;
+        max-height: 250px; 
     }
+
 
     .wishes p {
         font-size: 14px;
         line-height: 1.4;
+    }
+
+    /* Ajustes para telas menores */
+    .plate {
+        left: 70px;
+    }
+    
+    .flame {
+        left: 45px;
+    }
+
+    .paperclip {
+        right: 220px;
+    }
+
+    .wrap-decoTwo {
+        left: 420px;
     }
 }
 
@@ -617,11 +661,31 @@ p {
 
     .wishes {
         margin: 15px;
+        /* E adicione também aqui */
+        overflow-y: auto;
+        max-height: 220px; /* Ajuste a altura máxima para telas menores */
     }
-
+    
     .wishes p {
         font-size: 13px;
         line-height: 1.3;
+    }
+
+    /* Ajustes para telas muito pequenas */
+    .plate {
+        left: 60px;
+    }
+
+    .flame {
+        left: 40px;
+    }
+
+    .paperclip {
+        right: 200px;
+    }
+    
+    .wrap-decoTwo {
+        left: 390px;
     }
 }
 
